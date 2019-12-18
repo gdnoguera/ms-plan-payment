@@ -7,19 +7,8 @@ const Request = require("request");
 
 var servNameConsume='GetFeature';
 var hostNameConsume='https://simulador2019.herokuapp.com'
-var mongo = require('mongoskin');
-
-var db = mongo.db("mongodb://localhost:27017/simulador", {native_parser : true});
 
 
-let request = {
-  skuProducto: '',
-  numberQuotas: '',
-  interest: '',
-  iva: '',
-  balanceDefer: '',
-  fixedfee: ''
-};
 
 /** 
    * @description Método post expuesto al usuario
@@ -44,20 +33,11 @@ app.post(`/${service}/request`,
         if (error != null) {
           res.send(error);
         } else {
-         // saveData(JSON.parse(body));
           res.send(JSON.parse(body));
         }
       });
     }
   });
 
-//   function saveData(data){
-
-//   db.collection('planPagos').insert(data, function(error, record){
-//     if (error) throw error;
-//     console.log("data saved");
-// });
-
-// }
 
 module.exports = app;
